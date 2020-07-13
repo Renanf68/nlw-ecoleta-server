@@ -3,3 +3,4 @@ uploads/*
 !uploads/.gitkeep
 
 *.sqlite
+*db3
