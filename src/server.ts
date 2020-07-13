@@ -2,6 +2,7 @@ import express from "express";
 import path from "path";
 import cors from "cors";
 import { errors } from "celebrate";
+const PORT: string | number = process.env.PORT || 3333;
 
 import routes from "./routes";
 
@@ -15,4 +16,4 @@ app.use("/uploads", express.static(path.resolve(__dirname, "..", "uploads")));
 
 app.use(errors());
 
-app.listen(3333);
+app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));

@@ -11,6 +11,10 @@ const upload = multer(multerConfig);
 const pointsController = new PointsController();
 const itemsController = new ItemsController();
 
+routes.get("/", (req, res) => {
+  res.send("<h1>Server running...</h1>");
+});
+
 routes.get("/items", itemsController.index);
 
 routes.get("/points/:id", pointsController.show);
