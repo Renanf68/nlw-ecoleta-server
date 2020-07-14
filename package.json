@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/server.ts",
-  "type": "module",
   "engines": {
     "node": "12.17.0",
     "npm": "6.14.4"
