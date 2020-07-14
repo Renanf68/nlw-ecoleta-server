@@ -9,7 +9,7 @@
     "knex:seed": "knex --knexfile knexfile.ts seed:run",
     "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
     "tsc": "tsc",
-    "production": "node dist/server.js"
+    "production": "node dist/src/server.js"
   },
   "keywords": [],
   "author": "",
