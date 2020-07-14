@@ -10,7 +10,8 @@
   },
   "scripts": {
     "tsc-init": "tsc --init",
-    "dev": "ts-node-dev --transpileOnly --ignore-watch node_modules src/server.ts",
+    "tsc": "tsc",
+    "dev": "ts-node-dev --ignore-watch node_modules src/server.ts",
     "knex:seed": "knex --knexfile knexfile.ts seed:run",
     "knex:migrate": "knex --knexfile knexfile.ts migrate:latest"
   },
@@ -25,13 +26,13 @@
     "multer": "^1.4.2",
     "sqlite3": "^4.2.0",
     "ts-node": "^8.10.2",
+    "ts-node-dev": "^1.0.0-pre.44",
     "typescript": "^3.9.3"
   },
   "devDependencies": {
     "@types/cors": "^2.8.6",
     "@types/express": "^4.17.6",
     "@types/hapi__joi": "^17.1.2",
-    "@types/multer": "^1.4.3",
-    "ts-node-dev": "^1.0.0-pre.44"
+    "@types/multer": "^1.4.3"
   }
 }
