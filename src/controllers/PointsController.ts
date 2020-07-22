@@ -105,7 +105,7 @@ class PointsController {
 
       return response.status(400).json({
         message:
-          "Falha na inserção na tabela point_items, verifique se os items informados são válidos",
+          "Falha na inserção da tabela point_items, verifique se os items informados são válidos",
       });
     }
 
