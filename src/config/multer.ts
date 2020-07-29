@@ -1,8 +1,8 @@
 import multer from "multer";
 import path from "path";
 import crypto from "crypto";
-//import aws from "aws-sdk";
-//import multerS3 from "multer-s3";
+import aws from "aws-sdk";
+import multerS3 from "multer-s3";
 
 const bucketName = process.env.AWS_BUCKET || "ecoletauploads/uploads";
 
@@ -15,7 +15,7 @@ const storageTypes = {
       cb(null, filename);
     },
   }),
-  /*s3: multerS3({
+  s3: multerS3({
     s3: new aws.S3(),
     bucket: bucketName,
     contentType: multerS3.AUTO_CONTENT_TYPE,
@@ -28,14 +28,13 @@ const storageTypes = {
         cb(null, fileName);
       });
     },
-  }),*/
+  }),
 };
 
-/*const storageType =
+const storageType =
   process.env.STORAGE_TYPE === "local"
     ? storageTypes["local"]
-    : storageTypes["s3"];*/
-const storageType = storageTypes["local"];
+    : storageTypes["s3"];
 
 const config: multer.Options = {
   dest: path.resolve(__dirname, "..", "..", "uploads"),
