@@ -1,4 +1,4 @@
-import multer from "multer";
+import multer, { FileFilterCallback, MulterError } from "multer";
 import path from "path";
 import crypto from "crypto";
 import aws from "aws-sdk";
@@ -15,23 +15,23 @@ const storageTypes = {
   }),
   s3: multerS3({
     s3: new aws.S3(),
-    bucket: process.env.AWS_BUCKET,
+    bucket: "ecoletauploads/uploads", //process.env.AWS_BUCKET,
     contentType: multerS3.AUTO_CONTENT_TYPE,
     acl: "public-read",
     key: (req, file, cb) => {
       crypto.randomBytes(6, (err, hash) => {
         if (err) cb(err);
         const fileName = `${hash.toString("hex")}-${file.originalname}`;
-        const fullPath = "uploads/" + fileName;
-        cb(null, fullPath);
+        file.filename = fileName;
+        cb(null, fileName);
       });
     },
   }),
 };
 
-export default {
-  dest: path.resolve(__dirname, "..", "..", "tmp", "uploads"),
-  storage: storageTypes[process.env.STORAGE_TYPE],
+const config: multer.Options = {
+  dest: path.resolve(__dirname, "..", "..", "uploads"),
+  storage: storageTypes["s3"], //process.env.STORAGE_TYPE
   limits: {
     fileSize: 2 * 1024 * 1024, //limite de 2Mb
   },
@@ -44,3 +44,5 @@ export default {
     }
   },
 };
+
+export default config;
