@@ -1,8 +1,5 @@
 declare namespace NodeJS {
   export interface ProcessEnv {
-    HOST: string;
-    DB_URL: string;
-    DB_NAME?: string;
     UPLOADS_URL: string;
     ITEMS_URL: string;
     STORAGE_TYPE: string;

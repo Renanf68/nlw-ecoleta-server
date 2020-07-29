@@ -1,4 +1,4 @@
-import multer, { FileFilterCallback, MulterError } from "multer";
+import multer from "multer";
 import path from "path";
 import crypto from "crypto";
 import aws from "aws-sdk";
